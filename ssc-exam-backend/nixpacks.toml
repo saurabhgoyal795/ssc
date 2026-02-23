@@ -1,0 +1,5 @@
+[start]
+cmd = "mvn spring-boot:run"
+
+[build]
+cmd = "mvn clean package -DskipTests"
