@@ -49,6 +49,7 @@ export interface Test {
   isPublished: boolean
   publishedAt?: string
   createdAt: string
+  totalQuestions?: number
   sections?: TestSection[]
 }
 
