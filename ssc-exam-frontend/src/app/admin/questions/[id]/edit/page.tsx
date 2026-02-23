@@ -71,7 +71,11 @@ export default function EditQuestionPage() {
     setSaving(true)
 
     try {
-      await apiClient.put(`/admin/questions/${params.id}`, formData)
+      await apiClient.put(`/admin/questions/${params.id}`, {
+        ...formData,
+        questionType: formData.questionType as 'SINGLE_CHOICE' | 'MULTIPLE_CHOICE' | 'NUMERICAL',
+        difficultyLevel: formData.difficultyLevel as 'EASY' | 'MEDIUM' | 'HARD',
+      })
       alert('Question updated!')
       router.push('/admin/questions')
     } catch (error: any) {

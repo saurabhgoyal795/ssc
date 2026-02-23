@@ -64,7 +64,7 @@ export default function NewMaterialPage() {
         title: formData.title,
         description: formData.description || undefined,
         subjectId: formData.subjectId ? parseInt(formData.subjectId) : undefined,
-        materialType: formData.materialType as any,
+        materialType: formData.materialType as 'PDF' | 'ARTICLE' | 'NOTES' | 'CHEAT_SHEET',
         isPremium: formData.isPremium,
       })
 
