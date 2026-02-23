@@ -64,6 +64,8 @@ export default function EditTestPage() {
     try {
       await testsApi.update(Number(params.id), {
         ...formData,
+        testType: formData.testType as 'MOCK_TEST' | 'SECTION_TEST' | 'TOPIC_TEST' | 'PREVIOUS_YEAR' | 'PRACTICE',
+        difficultyLevel: formData.difficultyLevel as 'EASY' | 'MEDIUM' | 'HARD',
         questionIds: [], // Keep existing questions
       })
       alert('Test updated successfully!')
