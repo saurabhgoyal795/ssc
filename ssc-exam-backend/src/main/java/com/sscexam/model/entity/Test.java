@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -80,11 +82,13 @@ public class Test {
 
     @OneToMany(mappedBy = "test", cascade = CascadeType.ALL, orphanRemoval = true)
     @OrderBy("sectionOrder ASC")
+    @Fetch(FetchMode.SUBSELECT)
     @Builder.Default
     private List<TestSection> sections = new ArrayList<>();
 
     @OneToMany(mappedBy = "test", cascade = CascadeType.ALL, orphanRemoval = true)
     @OrderBy("questionOrder ASC")
+    @Fetch(FetchMode.SUBSELECT)
     @Builder.Default
     private List<TestQuestion> testQuestions = new ArrayList<>();
 

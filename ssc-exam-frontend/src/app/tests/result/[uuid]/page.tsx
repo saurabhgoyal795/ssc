@@ -140,7 +140,7 @@ export default function TestResultPage() {
             <CardContent className="pt-6 text-center">
               <div className="text-3xl mb-2">🎯</div>
               <p className="text-3xl font-bold text-blue-600">
-                {result.accuracyPercentage.toFixed(1)}%
+                {result.accuracyPercentage ? result.accuracyPercentage.toFixed(1) : '0.0'}%
               </p>
               <p className="text-sm text-gray-600">Accuracy</p>
             </CardContent>
@@ -150,7 +150,7 @@ export default function TestResultPage() {
             <CardContent className="pt-6 text-center">
               <div className="text-3xl mb-2">📊</div>
               <p className="text-3xl font-bold text-purple-600">
-                {result.percentile.toFixed(1)}
+                {result.percentile ? result.percentile.toFixed(1) : '0.0'}
               </p>
               <p className="text-sm text-gray-600">Percentile</p>
             </CardContent>
@@ -160,7 +160,7 @@ export default function TestResultPage() {
             <CardContent className="pt-6 text-center">
               <div className="text-3xl mb-2">🏆</div>
               <p className="text-3xl font-bold text-orange-600">
-                {result.rank} / {result.totalAttempts}
+                {result.rank || 0} / {result.totalAttempts || 0}
               </p>
               <p className="text-sm text-gray-600">Rank</p>
             </CardContent>

@@ -17,10 +17,10 @@ import java.util.UUID;
 @Repository
 public interface TestRepository extends JpaRepository<Test, Long> {
 
-    @EntityGraph(attributePaths = {"sections", "sections.subject", "testQuestions", "testQuestions.question", "testQuestions.question.options"})
+    @EntityGraph(attributePaths = {"testQuestions", "testQuestions.question"})
     Optional<Test> findBySlugAndIsActiveTrue(String slug);
 
-    @EntityGraph(attributePaths = {"sections", "testQuestions"})
+    @EntityGraph(attributePaths = {"testQuestions"})
     Optional<Test> findByUuid(UUID uuid);
 
     Optional<Test> findByIdAndIsActiveTrue(Long id);
