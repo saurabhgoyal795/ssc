@@ -1,0 +1,40 @@
+[Unit]
+Description=SSC Exam Backend Service
+After=postgresql.service network.target
+Requires=postgresql.service
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/opt/ssc-exam-backend/ssc-exam-backend
+
+# Java execution with memory settings
+ExecStart=/usr/bin/java \
+    -jar \
+    -Xmx512m \
+    -Xms256m \
+    -Dspring.profiles.active=production \
+    /opt/ssc-exam-backend/ssc-exam-backend/target/ssc-exam-backend-1.0.0.jar
+
+# Environment file
+EnvironmentFile=/opt/ssc-exam-backend/ssc-exam-backend/.env
+
+# Restart policy
+Restart=always
+RestartSec=10
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ssc-exam-backend
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+
+# Limits
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
