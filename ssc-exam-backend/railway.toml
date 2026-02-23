@@ -1,6 +1,4 @@
 [build]
 builder = "DOCKERFILE"
 dockerfilePath = "ssc-exam-backend/Dockerfile"
-
-[deploy]
-startCommand = "java -jar app.jar"
+watchPatterns = ["ssc-exam-backend/**"]
