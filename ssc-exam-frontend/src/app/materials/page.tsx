@@ -42,7 +42,7 @@ export default function MaterialsPage() {
     try {
       const data = await materialsApi.list({
         subjectId: filters.subjectId ? parseInt(filters.subjectId) : undefined,
-        materialType: filters.materialType || undefined,
+        materialType: filters.materialType ? (filters.materialType as 'PDF' | 'ARTICLE' | 'NOTES' | 'CHEAT_SHEET') : undefined,
         search: search || undefined,
         page,
         size: 12,
