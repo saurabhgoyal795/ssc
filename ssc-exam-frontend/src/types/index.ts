@@ -57,6 +57,7 @@ export interface TestSection {
   id: number
   testId: number
   subjectId: number
+  subjectName?: string
   sectionName: string
   sectionOrder: number
   durationMinutes?: number
