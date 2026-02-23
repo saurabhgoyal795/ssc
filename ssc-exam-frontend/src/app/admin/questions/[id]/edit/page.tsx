@@ -40,8 +40,8 @@ export default function EditQuestionPage() {
   const loadData = async () => {
     try {
       const [subjectsRes, questionRes] = await Promise.all([
-        apiClient.get('/subjects'),
-        apiClient.get(`/admin/questions/${params.id}`),
+        apiClient.get<any>('/subjects'),
+        apiClient.get<any>(`/admin/questions/${params.id}`),
       ])
 
       setSubjects(subjectsRes.data.data)
